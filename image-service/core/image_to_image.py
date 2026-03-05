@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 图生图脚本 (Image-to-Image)
-使用 Lyra Flash API 基于参考图片和中文指令进行图片编辑
+基于参考图片和中文指令进行图片编辑（OpenAI Images API 兼容）
 
 Author: 翟星人
 """
@@ -53,7 +53,7 @@ class ImageToImageEditor:
         
         self.api_key = config.get('api_key') or config.get('IMAGE_API_KEY')
         self.base_url = config.get('base_url') or config.get('IMAGE_API_BASE_URL')
-        self.model = config.get('model') or config.get('IMAGE_MODEL') or 'lyra-flash-9'
+        self.model = config.get('model') or config.get('IMAGE_MODEL') or 'dall-e-3'
         
         if not self.api_key or not self.base_url:
             raise ValueError("缺少必要的 API 配置：api_key 和 base_url")
